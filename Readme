@@ -1,0 +1,30 @@
+Members:
+Group 4
+Joseph Breen, Ezekiel Halley, Eyassu Tamirat, Benyam Degefu, Dagm Kebede, and Isha Conteh
+Goal: To create a fun and interactive platform that allows outdoor enthusiast, in particular hikers, to connect and find groups, details about trails, and nearby areas open for outdoor activities.
+Use Cases: 
+-	Our primary user base would consist of outdoor enthusiast in the Baltimore area.
+-	People interested in getting into outdoor activities.
+-	People who are already interested in outdoor activities that are seeking new places to visit.
+-	People in general who are seeking connections with fellow outdoor enthusiasts.
+-	We will keep an up-to-date record of all log trails and outdoor sites so that users can be informed about an area’s conditions before setting out.
+-	Support user reporting of an area’s conditions to share with other users.
+Necessary Features:
+-	Firebase database
+-	React 
+-	JavaScript
+-	HTML + CSS
+-	Some map API such as the google maps platform
+-	Some security measure for storing user credentials
+-	Additional services to be determined after research
+Schedule:
+Week	Task
+1	Project proposal completed
+2	Research hiking relevant information; Determine database requirements and other necessary services
+3	Discuss site UI/UX design; Begin setting up front end
+4	Set up database and other backend services
+5	Integrate front end and back end
+6	Functional prototype completed
+7	Testing + Finishing touches
+8	Project submission
+
