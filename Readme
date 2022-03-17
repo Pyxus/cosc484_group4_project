@@ -10,7 +10,7 @@ Use Cases:
 -	We will keep an up-to-date record of all log trails and outdoor sites so that users can be informed about an area’s conditions before setting out.
 -	Support user reporting of an area’s conditions to share with other users.
 Necessary Features:
--	Firebase database
+-	MongoDB database
 -	React 
 -	JavaScript
 -	HTML + CSS
