@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app' 
 import 'firebase/compat/auth'
 
+//TODO: Figure out to switch to using environment variables
 const app = firebase.initializeApp({
  apiKey: "AIzaSyARZgWfmllxaQNYyMChYnAQdpNIcm1fTm4",
   authDomain: "cosc484-web-project.firebaseapp.com",
