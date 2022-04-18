@@ -16,8 +16,8 @@ export default function HomePage() {
             </Nav>
             <Nav className='ms-auto'>
                 <InputGroup size="sm">
-                    <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                    <InputGroup.Text id="inputGroup-sizing-sm">Small</InputGroup.Text>
+                    <FormControl aria-label="Search" aria-describedby="inputGroup-sizing-sm"/>
+                    <InputGroup.Text id="inputGroup-sizing-sm">Search</InputGroup.Text>
                 </InputGroup>
             </Nav>
             <Nav >
@@ -28,7 +28,8 @@ export default function HomePage() {
 
         <div style={{padding: '12px', height: '3000px'}}>
             {/*Content Area*/}
-            Test Content
+            Test Content.
+            If someone from the group is viewing this I was working on the homework but most of the testing has been setup and done for App.js
         </div>
     </div>
   )
