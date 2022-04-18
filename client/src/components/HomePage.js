@@ -1,6 +1,6 @@
 import logo from '../logo.svg'
 import React from 'react'
-import { Nav, Navbar, InputGroup } from 'react-bootstrap'
+import { Nav, Navbar, InputGroup, FormControl } from 'react-bootstrap'
 
 export default function HomePage() {
   return (
@@ -15,6 +15,12 @@ export default function HomePage() {
                 <Nav.Link href=''>Menu Options (Place Holder)</Nav.Link>
             </Nav>
             <Nav className='ms-auto'>
+                <InputGroup size="sm">
+                    <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                    <InputGroup.Text id="inputGroup-sizing-sm">Small</InputGroup.Text>
+                </InputGroup>
+            </Nav>
+            <Nav >
                 <Nav.Link href=''>Sign up</Nav.Link>
                 <Nav.Link href=''>Log in</Nav.Link>
             </Nav>
