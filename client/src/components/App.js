@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-import React, { PureComponent } from 'react';
-import HomePage from './HomePage';
-const App = () => {
-    return (
-        <HomePage/>
-    );
-}
-
-export default App;
-=======
+import HomePage from './HomePage'
 import React from 'react'
 import Signup from './Signup'
 import { Container } from 'react-bootstrap'
@@ -23,7 +13,7 @@ import UpdateProfile from './UpdateProfile'
 
 function App() {
     return (
-        <Container className ="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
+        /* <Container className ="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
             <div className='w-100' style={{maxWidth: "400px"}}>
 
                 <BrowserRouter>
@@ -38,9 +28,11 @@ function App() {
                     </AuthProvider>
                 </BrowserRouter>
             </div>
-        </Container>
+        </Container> */
+        <div>
+            <HomePage/>
+        </div>
     )
 }
 
 export default App
->>>>>>> 3ac449348317478d01bf559238435f7d062bb26d
