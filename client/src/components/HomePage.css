@@ -1,8 +1,0 @@
-div {
-    float:left;
-    width: 10%;
-    height:fit-content;
-    /* only for demonstration, should be removed */
-    background: #ccc;
-    padding: 20px;
-}

@@ -1,3 +1,4 @@
+import HomePage from './HomePage'
 import React from 'react'
 import Signup from './Signup'
 import { Container } from 'react-bootstrap'
@@ -8,11 +9,12 @@ import Dashboard from './Dashboard'
 import PrivateRoute from './PrivateRoute'
 import ForgotPassword from './ForgotPassword'
 import UpdateProfile from './UpdateProfile'
+import UserProfile from './UserProfile'
 
 
 function App() {
     return (
-        <Container className ="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
+        /* <Container className ="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
             <div className='w-100' style={{maxWidth: "400px"}}>
 
                 <BrowserRouter>
@@ -27,7 +29,10 @@ function App() {
                     </AuthProvider>
                 </BrowserRouter>
             </div>
-        </Container>
+        </Container> */
+        <div>
+            <UserProfile/>
+        </div>
     )
 }
 
