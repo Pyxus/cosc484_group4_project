@@ -20,7 +20,11 @@ export default function Navbar1() {
                             Home
                         </Nav.Link>
                     </Nav.Item>
-
+                    <Nav.Item>
+                        <Nav.Link eventKey="2" href="UserProfile.js">
+                            <a href="UserProfile.js"> UserProfile</a>
+                        </Nav.Link>
+                    </Nav.Item>
                     <NavDropdown title="Movies" id="nav-dropdown">
                         <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
                         <NavDropdown.Item eventKey="4.2">Comedy</NavDropdown.Item>
