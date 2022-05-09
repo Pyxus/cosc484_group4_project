@@ -9,9 +9,15 @@ import Dashboard from './Dashboard'
 import PrivateRoute from './PrivateRoute'
 import ForgotPassword from './ForgotPassword'
 import UpdateProfile from './UpdateProfile'
+import { db } from "../firebase"
+import { collection, getDocs, doc, setDoc } from "firebase/firestore"; 
 
-
-function App() {
+async function App() {
+    let d = await getDocs(collection(db, "users"))
+    d.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`)
+    })
+    console.log("HII")
     return (
         /* <Container className ="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
             <div className='w-100' style={{maxWidth: "400px"}}>
