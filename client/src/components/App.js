@@ -9,6 +9,7 @@ import Dashboard from './Dashboard'
 import PrivateRoute from './PrivateRoute'
 import ForgotPassword from './ForgotPassword'
 import UpdateProfile from './UpdateProfile'
+import UserProfile from './UserProfile'
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
             </div>
         </Container> */
         <div>
-            <HomePage/>
+            <UserProfile/>
         </div>
     )
 }
