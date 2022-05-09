@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
+import Navbar1 from './Navbar/Navbar1'
 
 
 export default function UpdateProfile() {
@@ -32,7 +33,7 @@ export default function UpdateProfile() {
         }
 
         Promise.all(promises).then(() =>{
-            navigate('/')
+            navigate('./')
         }).catch(() => {
             setError('Failed to update account')
         }).finally(()=>{
@@ -42,6 +43,7 @@ export default function UpdateProfile() {
 
     return (
         <div>
+            <Navbar1 />
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Update Profile</h2>

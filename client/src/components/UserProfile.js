@@ -13,8 +13,9 @@ export default function UserProfile() {
               <div className='d-flex flex-column align-items-center text-center'>
                 <div class="mt-3">
                   <h1>PICTURE</h1>
+                  <img src=" ">a</img>
                   <h4>First Last</h4>
-                  <p class="text-secondary mb-1">Favorite movie:</p>
+                  <p class="text-secondary mb-1">Favorite movie: </p>
                 </div>
               </div>
 
