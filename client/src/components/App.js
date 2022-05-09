@@ -12,8 +12,8 @@ import UpdateProfile from './UpdateProfile'
 import UserProfile from './UserProfile'
 
 
-function App() {
-    return (
+function App() {  
+    return ( 
         /* <Container className ="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
             <div className='w-100' style={{maxWidth: "400px"}}>
 
