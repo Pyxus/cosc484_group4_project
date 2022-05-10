@@ -1,15 +1,24 @@
-import logo from "../logo.svg";
 import React from "react";
-import { Nav, Navbar, InputGroup, FormControl } from "react-bootstrap";
-import Navbar1 from "./Navbar/Navbar1";
-import {useEffect, useState} from "react"
-import './Row.css'
+import { Nav, Navbar/* , InputGroup, FormControl, NavDropdown */ } from "react-bootstrap";
+import { useEffect, useState } from "react"
+import './HomePage.css'
 import axios from 'axios'
 import Movie from "./Movie"
-import Youtube from 'react-youtube'
+/* import Youtube from 'react-youtube' */
+/* import SearchIcon from '@mui/icons-material/Search'; */
 
-import UserProfile from "./UserProfile";
-
+/* import UserProfile from "./UserProfile"; */
+/* 
+window.onscroll= function(){stickyHeader};
+var header = document.getElementById('stickyH');
+var sticky = header.offsetTop;
+function stickyHeader(){
+    if(window.pageXOffset>sticky){
+        header.classList.add('sticky');
+    }else{
+        header.classList.remove('sticky');
+    }
+} */
 export default function HomePage() {
     const MOVIE_API = "https://api.themoviedb.org/3/"
     const SEARCH_API = MOVIE_API + "search/movie"
@@ -21,7 +30,7 @@ export default function HomePage() {
     const [trailer, setTrailer] = useState(null)
     const [movies, setMovies] = useState([])
     const [searchKey, setSearchKey] = useState("")
-    const [movie, setMovie] = useState({title: "Loading Movies"})
+    const [movie, setMovie] = useState({ title: "Loading Movies" })
 
     useEffect(() => {
         fetchMovies()
@@ -32,7 +41,7 @@ export default function HomePage() {
             event.preventDefault()
         }
 
-        const {data} = await axios.get(`${searchKey ? SEARCH_API : DISCOVER_API}`, {
+        const { data } = await axios.get(`${searchKey ? SEARCH_API : DISCOVER_API}`, {
             params: {
                 api_key: API_KEY,
                 query: searchKey
@@ -49,7 +58,7 @@ export default function HomePage() {
     }
 
     const fetchMovie = async (id) => {
-        const {data} = await axios.get(`${MOVIE_API}movie/${id}`, {
+        const { data } = await axios.get(`${MOVIE_API}movie/${id}`, {
             params: {
                 api_key: API_KEY,
                 append_to_response: "videos"
@@ -82,42 +91,82 @@ export default function HomePage() {
         ))
     )
     console.log(trailer);
+    const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
     return (
         <div className="App">
             <header className="center-max-size header">
-                <span className={"brand"}>Movie Trailer App</span>
+                {/* CHANGE WEBSITE NAME */}
+                <Navbar.Brand className={"brand"}>MovieBits</Navbar.Brand>
+                <Nav variant="pills" activeKey="1" onSelect={handleSelect}>
+                    <Nav.Item>
+                        <Nav.Link eventKey="1" href="#/home">
+                            Home
+                        </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="2" href="UserProfile.js">
+                            Profile
+                        </Nav.Link>
+                    </Nav.Item>
+                    {/* <NavDropdown title="Movies" id="nav-dropdown">
+                        <NavDropdown.Item >Action</NavDropdown.Item>
+                        <NavDropdown.Item >Comedy</NavDropdown.Item>
+                        <NavDropdown.Item >Documentary</NavDropdown.Item>
+                        <NavDropdown.Item >Drama</NavDropdown.Item>
+                        <NavDropdown.Item >Fiction</NavDropdown.Item>
+                        <NavDropdown.Item >Horror</NavDropdown.Item>
+
+                    </NavDropdown>
+                    <NavDropdown title="Tv Shows" id="nav-dropdown">
+                        <NavDropdown.Item >Action</NavDropdown.Item>
+                        <NavDropdown.Item >Comedy</NavDropdown.Item>
+                        <NavDropdown.Item >Documentary</NavDropdown.Item>
+                        <NavDropdown.Item >Drama</NavDropdown.Item>
+                        <NavDropdown.Item >Fiction</NavDropdown.Item>
+                        <NavDropdown.Item >Horror</NavDropdown.Item>
+                        <NavDropdown.Divider />
+            
+                    </NavDropdown> */}
+
+                </Nav>
+
+
+
+
                 <form className="form" onSubmit={fetchMovies}>
-                    <input className="search" type="text" id="search"
-                           onInput={(event) => setSearchKey(event.target.value)}/>
+                    <input className="search" type="text" id="search" placeholder="Search Here"
+                        onInput={(event) => setSearchKey(event.target.value)}/>
                     <button className="submit-search" type="submit"><i className="fa fa-search"></i></button>
                 </form>
+                
             </header>
             {movies.length ?
                 <main>
                     {movie ?
                         <div className="poster"
-                             style={{backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(${BACKDROP_PATH}${movie.backdrop_path})`}}>
+                            style={{ backgroundImage: 
+                            `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(${BACKDROP_PATH}${movie.backdrop_path})` }}>
                             {playing ?
-                            
+
                                 <>
                                     <iframe
-                                    className={"youtube amru"}
-                                            src={
-                                                `https://www.youtube.com/embed/${trailer.key}`
-                                            }
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
+                                        className={"youtube amru"}
+                                        src={
+                                            `https://www.youtube.com/embed/${trailer.key}`
+                                        }
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
                                     ></iframe>
- 
+
                                     <button onClick={() => setPlaying(false)} className={"button close-video"}>Close
                                     </button>
                                 </> :
-                                <div className="center-max-size">
+                                <div className="center-max-size-box">
                                     <div className="poster-content">
                                         {trailer ?
                                             <button className={"button play-video"} onClick={() => setPlaying(true)}
-                                                    type="button">Play
+                                                type="button">Play
                                                 Trailer</button>
                                             : 'Sorry, no trailer available'}
                                         <h1>{movie.title}</h1>

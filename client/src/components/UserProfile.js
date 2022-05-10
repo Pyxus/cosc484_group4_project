@@ -1,11 +1,12 @@
 import React,{useState, useEffect}from 'react'
 import { Form, Button, Row, Col, Modal} from "react-bootstrap";
 import Navbar1 from './Navbar/Navbar1'
+
 import UserProfileCSS from './UserProfile.css'
 import { doc , getDoc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { Link, useNavigate } from 'react-router-dom'
- 
+
 
 export default function UserProfile() {
   const auth = getAuth();
