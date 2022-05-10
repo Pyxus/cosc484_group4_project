@@ -1,7 +1,7 @@
 import HomePage from './HomePage'
 import React from 'react'
 import Signup from './Signup'
-import { Container } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import { AuthProvider } from '../contexts/AuthContext'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from "./Login"
@@ -9,6 +9,8 @@ import Dashboard from './Dashboard'
 import PrivateRoute from './PrivateRoute'
 import ForgotPassword from './ForgotPassword'
 import UpdateProfile from './UpdateProfile'
+import UserProfile from './UserProfile'
+import Navbar1 from './Navbar/Navbar1'
 
 
 function App() {
@@ -30,7 +32,7 @@ function App() {
             </div>
         </Container> */
         <div>
-            <HomePage/>
+            <HomePage />
         </div>
     )
 }
