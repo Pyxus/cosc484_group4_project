@@ -4,21 +4,26 @@ import Navbar1 from './Navbar/Navbar1'
 import UserProfileCSS from './UserProfile.css'
 import { doc , getDoc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-
+import { Link, useNavigate } from 'react-router-dom'
  
 
 export default function UserProfile() {
   const auth = getAuth();
   const user = auth.currentUser;
+  const navigate = useNavigate();
   const [userData, setUserData] = useState(null)
+  const db = getFirestore()
   //
   const fetchData= async() =>{
     try{
-        var db = getFirestore()
+      if (!userData)
+      {
         const docRef = doc(db, "users", user.uid)
         const docSnap = await getDoc(docRef)
         setUserData(docSnap.data())
-        console.log(userData);
+        console.log("1")
+      }
+      console.log("2")
     } catch (e){
         console.error(e)
     }
@@ -26,7 +31,7 @@ export default function UserProfile() {
 
   useEffect(() => {
     fetchData();
-  }, [userData])
+  }, [])
 
   
   return (
@@ -105,7 +110,7 @@ export default function UserProfile() {
                 ></Form.Control>
               </Form.Group> */}
               
-              <button type='button' /* onClick={this.openModal} */>Edit</button>
+              <button type='button' onClick={()=>{navigate("/update-profile")}}>Edit</button>
 {/* 
               <Modal show={this.state.isOpen} onHide={this.closeModal}>
                 <Modal.Header closeButton>
