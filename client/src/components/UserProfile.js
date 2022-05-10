@@ -1,11 +1,40 @@
-import React from 'react'
+import React,{useState, useEffect}from 'react'
 import { Form, Button, Row, Col, Modal} from "react-bootstrap";
 import Navbar1 from './Navbar/Navbar1'
-import './HomePage.css'
+
+import UserProfileCSS from './UserProfile.css'
+import { doc , getDoc, getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { Link, useNavigate } from 'react-router-dom'
+
 
 export default function UserProfile() {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState(null)
+  const db = getFirestore()
+  //
+  const fetchData= async() =>{
+    try{
+      if (!userData)
+      {
+        const docRef = doc(db, "users", user.uid)
+        const docSnap = await getDoc(docRef)
+        setUserData(docSnap.data())
+        console.log("1")
+      }
+      console.log("2")
+    } catch (e){
+        console.error(e)
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
   
- 
   return (
     <>
       {/* <Navbar1 /> */}
@@ -27,10 +56,13 @@ export default function UserProfile() {
             <div class="d-flex justify-content-between align-items-center">
               <h4 class="text-center">Profile Settings</h4>
             </div>
-            <Form>
+            {userData ? 
+            
+                        <Form>
               <Form.Group controlId="userName">
                 <Form.Label>User Name
-                  <Form.Control plaintext readOnly defaultValue="currUSER NAME"></Form.Control>
+                  <Form.Control plaintext readOnly defaultValue={userData.name}></Form.Control>
+                  {/* <Form.Control plaintext readOnly defaultValue={userData.name}></Form.Control> */}
                 </Form.Label>
               </Form.Group>
 
@@ -38,21 +70,21 @@ export default function UserProfile() {
 
               <Form.Group controlId="sex">
                 <Form.Label>Sex</Form.Label>
-                <Form.Control plaintext readOnly defaultValue="currUSER SEX" />
+                <Form.Control plaintext readOnly defaultValue={userData.sex} />
               </Form.Group>
 
               <hr />
 
               <Form.Group controlId="email">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control plaintext readOnly defaultValue="currUSER email Address" />
+                <Form.Control plaintext readOnly defaultValue={user.email} />
               </Form.Group>
 
               <hr />
 
               <Form.Group controlId="pNo">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control plaintext readOnly defaultValue="currUSER Phone Number" />
+                <Form.Control plaintext readOnly defaultValue={userData.phone} />
               </Form.Group>
 
               <hr />
@@ -79,7 +111,7 @@ export default function UserProfile() {
                 ></Form.Control>
               </Form.Group> */}
               
-              <button type='button' /* onClick={this.openModal} */>Edit</button>
+              <button type='button' onClick={()=>{navigate("/update-profile")}}>Edit</button>
 {/* 
               <Modal show={this.state.isOpen} onHide={this.closeModal}>
                 <Modal.Header closeButton>
@@ -94,6 +126,10 @@ export default function UserProfile() {
               </Modal>
  */}
             </Form>
+            : 
+            
+            <></>}
+
 
 
           </div>
