@@ -1,7 +1,6 @@
 import logo from "../logo.svg";
 import React from "react";
 import { Nav, Navbar, InputGroup, FormControl } from "react-bootstrap";
-import Navbar1 from "./Navbar/Navbar1";
 import {useEffect, useState} from "react"
 import './Row.css'
 import axios from 'axios'

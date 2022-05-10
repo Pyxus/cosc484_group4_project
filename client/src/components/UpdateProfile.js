@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
-import Navbar1 from './Navbar/Navbar1'
+import Navbar1 from './Navbar1'
 
 
 export default function UpdateProfile() {

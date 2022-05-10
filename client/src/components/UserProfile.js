@@ -1,6 +1,5 @@
 import React,{useState, useEffect}from 'react'
 import { Form, Button, Row, Col, Modal} from "react-bootstrap";
-import Navbar1 from './Navbar/Navbar1'
 import UserProfileCSS from './UserProfile.css'
 import { doc , getDoc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -23,7 +22,7 @@ export default function UserProfile() {
         setUserData(docSnap.data())
         console.log("1")
       }
-      console.log("2")
+      console.log("fetching user data")
     } catch (e){
         console.error(e)
     }

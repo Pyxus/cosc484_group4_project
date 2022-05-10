@@ -10,31 +10,24 @@ import PrivateRoute from './PrivateRoute'
 import ForgotPassword from './ForgotPassword'
 import UpdateProfile from './UpdateProfile'
 import UserProfile from './UserProfile'
-import Navbar1 from './Navbar/Navbar1'
+import Navbar1 from './Navbar1'
 
 
 function App() {
     return (
          <Container className ="d-flex align-items-center justify-content-center" style={{minHeight: "100vh"}}>
-            <div className='w-100' style={{maxWidth: "400px"}}>
-
                 <BrowserRouter>
                     <AuthProvider>
                         <Routes>
-                            <Route path='/' element={<PrivateRoute><UserProfile/></PrivateRoute>}/>
-                            <Route path='/update-profile' element={<PrivateRoute><UpdateProfile/></PrivateRoute>}/>
+                            <Route path='/' element={<PrivateRoute><HomePage/></PrivateRoute>}/>
+                            <Route path='/user-profile' element={<PrivateRoute><UserProfile/></PrivateRoute>}/>
                             <Route path='signup' element={<Signup/>}/>
                             <Route path='login' element={<Login/>}/>
                             <Route path='forgot-password' element={<ForgotPassword/>}/>
                         </Routes>
                     </AuthProvider>
                 </BrowserRouter>
-            </div>
         </Container> 
-        // <div>
-           
-        //     <UserProfile/>
-        // </div>
     )
 }
 
