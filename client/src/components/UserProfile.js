@@ -18,16 +18,17 @@ export default function UserProfile() {
         const docRef = doc(db, "users", user.uid)
         const docSnap = await getDoc(docRef)
         setUserData(docSnap.data())
+        console.log(userData);
     } catch (e){
         console.error(e)
     }
-    
   }
 
   useEffect(() => {
     fetchData();
   }, [userData])
-  console.log(userData);
+
+  
   return (
     <>
       {/* <Navbar1 /> */}
@@ -49,10 +50,12 @@ export default function UserProfile() {
             <div class="d-flex justify-content-between align-items-center">
               <h4 class="text-center">Profile Settings</h4>
             </div>
-            <Form>
+            {userData ? 
+            
+                        <Form>
               <Form.Group controlId="userName">
                 <Form.Label>User Name
-                  <Form.Control plaintext readOnly defaultValue={userData != null ? userData.name : "Loading..."}></Form.Control>
+                  <Form.Control plaintext readOnly defaultValue={userData.name}></Form.Control>
                   {/* <Form.Control plaintext readOnly defaultValue={userData.name}></Form.Control> */}
                 </Form.Label>
               </Form.Group>
@@ -61,21 +64,21 @@ export default function UserProfile() {
 
               <Form.Group controlId="sex">
                 <Form.Label>Sex</Form.Label>
-                <Form.Control plaintext readOnly defaultValue=" " />
+                <Form.Control plaintext readOnly defaultValue={userData.sex} />
               </Form.Group>
 
               <hr />
 
               <Form.Group controlId="email">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control plaintext readOnly defaultValue="currUSER email Address" />
+                <Form.Control plaintext readOnly defaultValue={user.email} />
               </Form.Group>
 
               <hr />
 
               <Form.Group controlId="pNo">
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control plaintext readOnly defaultValue="currUSER Phone Number" />
+                <Form.Control plaintext readOnly defaultValue={userData.phone} />
               </Form.Group>
 
               <hr />
@@ -117,6 +120,10 @@ export default function UserProfile() {
               </Modal>
  */}
             </Form>
+            : 
+            
+            <></>}
+
 
 
           </div>
