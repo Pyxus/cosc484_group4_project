@@ -1,6 +1,5 @@
 import firebase from 'firebase/compat/app' 
 import 'firebase/compat/auth'
-import { getFirestore } from 'firebase/firestore'
 
 //TODO: Figure out to switch to using environment variables
 const app = firebase.initializeApp({
@@ -45,5 +44,4 @@ export function reguarlRequest(handler, method, body, callback){
 */
 
 export const auth = app.auth()
-export const db = getFirestore(app)
 export default app
