@@ -2,9 +2,8 @@ import React,{useState, useEffect}from 'react'
 import { Form, Button, Row, Col, Modal} from "react-bootstrap";
 import Navbar1 from './Navbar/Navbar1'
 import UserProfileCSS from './UserProfile.css'
-import { doc , getDoc } from "firebase/firestore";
+import { doc , getDoc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import db from "../firebase";
 
  
 
@@ -12,9 +11,11 @@ export default function UserProfile() {
   const auth = getAuth();
   const user = auth.currentUser;
   const [userData, setUserData] = useState()
+
   useEffect(() => {
     async function fetchData() {
       try{
+          var db = getFirestore()
           const docRef = doc(db, "users", "l5gvNJamInhndFcYFLktDDump9e2")
           const docSnap = await getDoc(docRef)
           setUserData(docSnap.data())
@@ -23,8 +24,9 @@ export default function UserProfile() {
       }
     }
     fetchData();
-  }, [userData])
+  }, [])
   console.log(userData);
+  
   return (
     <>
       {/* <Navbar1 /> */}
