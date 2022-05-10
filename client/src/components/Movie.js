@@ -14,7 +14,7 @@ const Movie = ({movie, selectMovie}) => {
                     {movie.vote_average ? <span className={"movie-voting"}>{movie.vote_average}</span> : null}
 
                     <h5 className={"release_date"}>{movie.release_date}</h5>
-                    {movie.release_date ? <span className={"release_date"}>{movie.release_date}</span> : null}
+                    {movie.release_date ? <span className={"release_date"}>{movie.release_date}</span> : "-"}
 
 
 
