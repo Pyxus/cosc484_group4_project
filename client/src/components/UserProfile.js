@@ -1,11 +1,30 @@
-import React from 'react'
+import React,{useState, useEffect}from 'react'
 import { Form, Button, Row, Col, Modal} from "react-bootstrap";
 import Navbar1 from './Navbar/Navbar1'
 import UserProfileCSS from './UserProfile.css'
+import { doc , getDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import db from "../firebase";
+
+ 
 
 export default function UserProfile() {
-  
- 
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const [userData, setUserData] = useState()
+  useEffect(() => {
+    async function fetchData() {
+      try{
+          const docRef = doc(db, "users", "l5gvNJamInhndFcYFLktDDump9e2")
+          const docSnap = await getDoc(docRef)
+          setUserData(docSnap.data())
+      } catch (e){
+          console.error(e)
+      }
+    }
+    fetchData();
+  }, [userData])
+  console.log(userData);
   return (
     <>
       {/* <Navbar1 /> */}
@@ -30,7 +49,7 @@ export default function UserProfile() {
             <Form>
               <Form.Group controlId="userName">
                 <Form.Label>User Name
-                  <Form.Control plaintext readOnly defaultValue="currUSER NAME"></Form.Control>
+                  <Form.Control plaintext readOnly defaultValue=""></Form.Control>
                 </Form.Label>
               </Form.Group>
 
