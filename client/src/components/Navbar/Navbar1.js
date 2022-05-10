@@ -26,23 +26,22 @@ export default function Navbar1() {
                         </Nav.Link>
                     </Nav.Item>
                     <NavDropdown title="Movies" id="nav-dropdown">
-                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.2">Comedy</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.3">Documentary</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.4">Drama</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.5">Fiction</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.6">Horror</NavDropdown.Item>
+                        <NavDropdown.Item /* onClick={fetchMovies} */>Action</NavDropdown.Item>
+                        <NavDropdown.Item >Comedy</NavDropdown.Item>
+                        <NavDropdown.Item >Documentary</NavDropdown.Item>
+                        <NavDropdown.Item >Drama</NavDropdown.Item>
+                        <NavDropdown.Item >Fiction</NavDropdown.Item>
+                        <NavDropdown.Item >Horror</NavDropdown.Item>
 
                     </NavDropdown>
                     <NavDropdown title="Tv Shows" id="nav-dropdown">
-                        <NavDropdown.Item eventKey="4.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.2">Comedy</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.3">Documentary</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.4">Drama</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.5">Fiction</NavDropdown.Item>
-                        <NavDropdown.Item eventKey="4.6">Horror</NavDropdown.Item>
+                        <NavDropdown.Item >Action</NavDropdown.Item>
+                        <NavDropdown.Item >Comedy</NavDropdown.Item>
+                        <NavDropdown.Item >Documentary</NavDropdown.Item>
+                        <NavDropdown.Item >Drama</NavDropdown.Item>
+                        <NavDropdown.Item >Fiction</NavDropdown.Item>
+                        <NavDropdown.Item >Horror</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
             
                     </NavDropdown>
                     
