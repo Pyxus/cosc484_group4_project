@@ -47,6 +47,7 @@ export default function Navbar1() {
                     </NavDropdown>
                     
                 </Nav>
+                
                 <Nav className="ms-auto">
 
                 </Nav>

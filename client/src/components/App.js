@@ -32,7 +32,8 @@ function App() {
         //     </div>
         // </Container> */
         <div>
-            <HomePage />
+            <Navbar1 />
+            <UserProfile/>
         </div>
     )
 }
