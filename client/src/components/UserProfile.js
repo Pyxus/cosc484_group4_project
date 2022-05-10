@@ -10,24 +10,24 @@ import { getAuth } from "firebase/auth";
 export default function UserProfile() {
   const auth = getAuth();
   const user = auth.currentUser;
-  const [userData, setUserData] = useState()
+  const [userData, setUserData] = useState(null)
   //
+  const fetchData= async() =>{
+    try{
+        var db = getFirestore()
+        const docRef = doc(db, "users", user.uid)
+        const docSnap = await getDoc(docRef)
+        setUserData(docSnap.data())
+    } catch (e){
+        console.error(e)
+    }
+    
+  }
 
   useEffect(() => {
-    async function fetchData() {
-      try{
-          var db = getFirestore()
-          const docRef = doc(db, "users", "l5gvNJamInhndFcYFLktDDump9e2")
-          const docSnap = await getDoc(docRef)
-          setUserData(docSnap.data())
-      } catch (e){
-          console.error(e)
-      }
-    }
     fetchData();
-  }, [])
+  }, [userData])
   console.log(userData);
-  
   return (
     <>
       {/* <Navbar1 /> */}
@@ -52,7 +52,8 @@ export default function UserProfile() {
             <Form>
               <Form.Group controlId="userName">
                 <Form.Label>User Name
-                  <Form.Control plaintext readOnly defaultValue=""></Form.Control>
+                  <Form.Control plaintext readOnly defaultValue={userData != null ? userData.name : "Loading..."}></Form.Control>
+                  {/* <Form.Control plaintext readOnly defaultValue={userData.name}></Form.Control> */}
                 </Form.Label>
               </Form.Group>
 
@@ -60,7 +61,7 @@ export default function UserProfile() {
 
               <Form.Group controlId="sex">
                 <Form.Label>Sex</Form.Label>
-                <Form.Control plaintext readOnly defaultValue="currUSER SEX" />
+                <Form.Control plaintext readOnly defaultValue=" " />
               </Form.Group>
 
               <hr />
