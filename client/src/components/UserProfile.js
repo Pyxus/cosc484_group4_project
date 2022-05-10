@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Button, Row, Col, Modal} from "react-bootstrap";
 import Navbar1 from './Navbar/Navbar1'
-import UserProfileCSS from './UserProfile.css'
+import './HomePage.css'
 
 export default function UserProfile() {
   
