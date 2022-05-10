@@ -11,6 +11,7 @@ export default function UserProfile() {
   const auth = getAuth();
   const user = auth.currentUser;
   const [userData, setUserData] = useState()
+  //
 
   useEffect(() => {
     async function fetchData() {
