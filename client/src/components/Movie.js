@@ -14,22 +14,12 @@ const Movie = ({movie, selectMovie}) => {
                 }
                 <div className={"flex between movie-infos"}>
                     <h5 className={"movie-title"}>{movie.title}</h5>
-                    {movie.vote_average ? <span className={"movie-voting"}>{movie.vote_average}</span> : null}
-<<<<<<< Updated upstream
+                    {movie.vote_average ? <span className={"movie-voting"}>{movie.vote_average}</span> : null}                
 
-                    <h5 className={"release_date"}>{movie.release_date}</h5>
-                    {movie.release_date ? <span className={"release_date"}>{movie.release_date}</span> : "-"}
+                   <h7  style={{ color: 'gray', lineHeight : 2.5, padding:0}}>  
+                    {movie.release_date} </h7>
 
-
-
-=======
-                    <div>
-
-                   <h5 className="release_date">
-                    {movie.release_date} </h5>
-
-                    </div>
->>>>>>> Stashed changes
+                    
                 </div>
             </div>
         </div>
